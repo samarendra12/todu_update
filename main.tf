@@ -10,7 +10,7 @@ module "azurerm_resource_group" {
     rg_location = "central india"
 }
 
-module "azurerm_resource_group" {
+module "azurerm_resource_group1" {
     source= "../modules/azurerm_resource_group"
     rg_name = "vinod1"
     rg_location = "West Europe"
