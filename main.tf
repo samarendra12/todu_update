@@ -13,6 +13,12 @@ module "azurerm_resource_group" {
     rg_name = "samar1"
     rg_location = "central india"
 }
+
+ module "azurerm_resource_group" {
+    source= "../modules/azurerm_resource_group"
+    rg_name = "mrityunjay"
+    rg_location = "central india"
+}
  module "azurerm_mssql_database" {
     source = "../modules/azurerm_sequal_database" 
     db_name = "samaridhi"
