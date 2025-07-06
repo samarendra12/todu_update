@@ -3,6 +3,10 @@ module "azurerm_resource_group" {
     rg_name = "samar"
     rg_location = "west europe"
 }
+    resource"azurerm_resource_group""testing"{
+    name = "testing_rg"
+    location = "west europe"
+}
  
  module "azurerm_resource_group" {
     source= "../modules/azurerm_resource_group"
