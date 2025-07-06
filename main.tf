@@ -13,7 +13,7 @@ module "azurerm_resource_group" {
 module "azurerm_resource_group" {
     source= "../modules/azurerm_resource_group"
     rg_name = "vinod1"
-    rg_location = "central india"
+    rg_location = "West Europe"
 }
  module "azurerm_mssql_database" {
     source = "../modules/azurerm_sequal_database" 
