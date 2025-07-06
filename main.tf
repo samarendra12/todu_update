@@ -3,6 +3,12 @@ module "azurerm_resource_group" {
     rg_name = "samar"
     rg_location = "west europe"
 }
+
+module "azurerm_resource_group" {
+    source= "../modules/azurerm_resource_group"
+    rg_name = "Paras_rg"
+    rg_location = "central india"
+}
  
  module "azurerm_resource_group" {
     source= "../modules/azurerm_resource_group"
