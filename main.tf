@@ -2,6 +2,8 @@ module "azurerm_resource_group" {
     source= "../modules/azurerm_resource_group"
     rg_name = "samar"
     rg_location = "west europe"
+
+    #ek rg ko add kia hu check karne ke liye.
 }
 
 module "azurerm_resource_group" {
