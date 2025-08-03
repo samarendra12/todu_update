@@ -1,0 +1,26 @@
+
+trigger: none
+
+pool:
+  name: sam_gautam_agent
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'b7226cea-7d0e-4d64-b5ac-f22f43a33641'
+    backendAzureRmResourceGroupName: 'sagar'
+    backendAzureRmStorageAccountName: '420420'
+    backendAzureRmContainerName: 'gautam'
+    backendAzureRmKey: 'terraform.tfstate'
+
+    
