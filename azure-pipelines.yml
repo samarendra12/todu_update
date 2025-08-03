@@ -22,5 +22,14 @@ steps:
     backendAzureRmStorageAccountName: '420420'
     backendAzureRmContainerName: 'gautam'
     backendAzureRmKey: 'terraform.tfstate'
-
-    
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/todo.infra'
+    environmentServiceNameAzureRM: 'sam_service_connection'
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'sam_service_connection'
