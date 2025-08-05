@@ -11,7 +11,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/group_data'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/todo.infra'
     backendServiceArm: 'group_service_connection'
     backendAzureRmStorageAccountName: '420420'
     backendAzureRmContainerName: 'gautam'
@@ -21,13 +21,13 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/group_data' 
+    workingDirectory: '$(System.DefaultWorkingDirectory)/todo.infra' 
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/group_data'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/todo.infra'
     environmentServiceNameAzureRM: 'group_service_connection'
 
 
