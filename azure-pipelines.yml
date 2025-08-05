@@ -1,6 +1,6 @@
 trigger: none
 
-pool: group_agent
+pool: group_pool
 
 steps:
 - task: TerraformInstaller@1
