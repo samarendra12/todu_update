@@ -1,35 +1,32 @@
-
 trigger: none
 
-pool:
-  name: sam_gautam_agent
+pool: group_agent
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'b7226cea-7d0e-4d64-b5ac-f22f43a33641'
-    backendAzureRmResourceGroupName: 'sagar'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/group_data'
+    backendServiceArm: 'group_service_connection'
     backendAzureRmStorageAccountName: '420420'
     backendAzureRmContainerName: 'gautam'
-    backendAzureRmKey: 'terraform.tfstate'
+    backendAzureRmKey: 'group.tfstate' 
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/group_data' 
+
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/todo.infra'
-    environmentServiceNameAzureRM: 'sam_service_connection'
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    environmentServiceNameAzureRM: 'sam_service_connection'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/group_data'
+    environmentServiceNameAzureRM: 'group_service_connection'
+
